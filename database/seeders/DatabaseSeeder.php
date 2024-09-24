@@ -14,6 +14,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // Aggiungi qui il seeder per i progetti
-        $this->call(ProjectSeeder::class);
+        $this->call([
+            ProjectSeeder::class,
+            ProgrammingLanguageSeeder::class,
+        ]);
     }
 }

@@ -10,9 +10,9 @@ class ProjectSeeder extends Seeder
     /**
      * Esegue il seeder per popolare il database con progetti fittizi.
      *
-     * @return void
+     *
      */
-    public function run()
+    public function run(): void
     {
         // Chiama la funzione di Helper per creare 100 progetti fittizi
         Helper::seedFakeProjects(10);

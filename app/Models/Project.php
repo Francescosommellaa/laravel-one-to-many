@@ -12,10 +12,15 @@ class Project extends Model
     protected $fillable = [
         'name',
         'description',
-        'programming_language',
+        'programming_language_id',
         'slug',
         'img',
         'thumbnail_img',
         'website_url'
     ];
+
+    public function programmingLanguage()
+    {
+        return $this->belongsTo(ProgrammingLanguage::class);
+    }
 }
