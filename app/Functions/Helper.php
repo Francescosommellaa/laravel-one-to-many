@@ -18,7 +18,7 @@ class Helper
             Project::create([
                 'name' => $faker->words(3, true), // Nome del progetto
                 'description' => $faker->paragraphs(4, true), // Descrizione del progetto
-                'programming_language' => $faker->words(3, true), // Linguaggi di programmazione del progetto
+                'programming_language_id' => $faker->numberBetween(1, 5), // ID del linguaggio di programmazione
                 'img' => $faker->imageUrl(640, 480, 'business', true, 'Project'), // Immagine (facoltativa)
                 'thumbnail_img' => $faker->imageUrl(150, 150, 'business', true, 'Thumbnail'), // Immagine miniatura (facoltativa)
                 'website_url' => $faker->url, // Link al sito del progetto (facoltativo)
