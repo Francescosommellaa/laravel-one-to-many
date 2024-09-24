@@ -30,6 +30,7 @@
                                 </tr>
                             </thead>
                             <tbody>
+
                                 @foreach ($projects as $project)
                                     <tr>
                                         <td>{{ $project->name }}</td>

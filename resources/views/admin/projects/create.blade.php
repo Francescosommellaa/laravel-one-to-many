@@ -21,9 +21,11 @@
                     <div class="mb-3">
                         <label for="programming_language_id" class="form-label">Linguaggi Utilizzati: <span
                                 class="text-danger">*</span></label>
-                        @foreach ($programmingLanguages as $language)
-                            <option value="{{ $language->id }}">{{ $language->name }}</option>
-                        @endforeach
+                        <select class="form-control" name="programming_language_id" id="programming_language_id" required>
+                            @foreach ($programming_languages as $language)
+                                <option value="{{ $language->id }}">{{ $language->name }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="mb-3">
                         <label for="img" class="form-label">Immagine:</label>

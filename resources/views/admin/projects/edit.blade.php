@@ -24,7 +24,7 @@
 
                     <label for="programming_language_id">Linguaggio:</label>
                     <select class="form-control" name="programming_language_id" id="programming_language_id" required>
-                        @foreach ($programmingLanguages as $language)
+                        @foreach ($programming_languages as $language)
                             <option value="{{ $language->id }}">{{ $language->name }}</option>
                         @endforeach
                     </select>

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 
 class ProjectController extends Controller
 {
@@ -18,14 +19,15 @@ class ProjectController extends Controller
 
     public function create()
     {
-        return view('admin.projects.create');
+        $programming_languages = DB::table('programming_languages')->get(['id', 'name']);
+        return view('admin.projects.create', compact('programming_languages'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'description' => 'nullable|string',
+            'description' => 'required|string',
             'programming_language_id' => 'nullable|exists:programming_languages,id',
             'img' => 'nullable|string',
             'thumbnail_img' => 'nullable|string',
@@ -40,19 +42,21 @@ class ProjectController extends Controller
 
     public function edit(Project $project)
     {
-        return view('admin.projects.edit', compact('project'));
+        $programming_languages = DB::table('programming_languages')->get(['id', 'name']);
+        return view('admin.projects.edit', compact('project', 'programming_languages'));
     }
 
     public function show(Project $project)
     {
-        return view('admin.projects.show', compact('project'));
+        $programming_languages = DB::table('programming_languages')->get(['id', 'name']);
+        return view('admin.projects.show', compact('project', 'programming_languages'));
     }
 
     public function update(Request $request, Project $project)
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'description' => 'nullable|string',
+            'description' => 'required|string',
             'programming_language_id' => 'nullable|exists:programming_languages,id',
             'img' => 'nullable|string',
             'thumbnail_img' => 'nullable|string',

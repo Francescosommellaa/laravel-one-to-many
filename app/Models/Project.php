@@ -19,7 +19,7 @@ class Project extends Model
         'website_url'
     ];
 
-    public function programmingLanguage()
+    public function programming_language()
     {
         return $this->belongsTo(ProgrammingLanguage::class);
     }
