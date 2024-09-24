@@ -23,17 +23,17 @@ class ProjectController extends Controller
 
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
+        $request->validate([
             'name' => 'required|string|max:255',
-            'description' => 'required|string',
-            'programming_language' => 'required|string',
+            'description' => 'nullable|string',
+            'programming_language_id' => 'nullable|exists:programming_languages,id',
             'img' => 'nullable|string',
             'thumbnail_img' => 'nullable|string',
             'website_url' => 'required|string|url',
         ]);
 
         $validatedData['slug'] = Str::slug($request->name);
-        Project::create($validatedData);
+        Project::create($request->all());
 
         return redirect()->route('admin.projects.index')->with('success', 'Progetto creato con successo.');
     }
@@ -50,17 +50,17 @@ class ProjectController extends Controller
 
     public function update(Request $request, Project $project)
     {
-        $validatedData = $request->validate([
+        $request->validate([
             'name' => 'required|string|max:255',
-            'description' => 'required|string',
-            'programming_language' => 'required|string',
+            'description' => 'nullable|string',
+            'programming_language_id' => 'nullable|exists:programming_languages,id',
             'img' => 'nullable|string',
             'thumbnail_img' => 'nullable|string',
             'website_url' => 'required|string|url',
         ]);
 
         $validatedData['slug'] = Str::slug($request->name);
-        $project->update($validatedData);
+        $project->update($request->all());
 
         return redirect()->route('admin.projects.index')->with('success', 'Progetto aggiornato con successo.');
     }

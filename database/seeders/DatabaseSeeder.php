@@ -15,8 +15,8 @@ class DatabaseSeeder extends Seeder
     {
         // Aggiungi qui il seeder per i progetti
         $this->call([
-            ProjectSeeder::class,
             ProgrammingLanguageSeeder::class,
+            ProjectSeeder::class,
         ]);
     }
 }

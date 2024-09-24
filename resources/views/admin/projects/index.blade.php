@@ -34,7 +34,7 @@
                                     <tr>
                                         <td>{{ $project->name }}</td>
                                         <td>{{ Str::limit($project->description, 50) }}</td>
-                                        <td>{{ $project->programming_language }}</td>
+                                        <td>{{ $project->programming_language->name ?? 'Nessun linguaggio' }}</td>
                                         <td>{{ $project->slug }}</td>
                                         <td>
                                             <a href="{{ route('admin.projects.show', $project->id) }}"

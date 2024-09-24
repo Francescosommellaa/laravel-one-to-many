@@ -22,11 +22,12 @@
                         <textarea name="description" class="form-control" rows="5" required>{{ old('description', $project->description) }}</textarea>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="programming_language" class="form-label">Linguaggi Utilizzati: *</label>
-                        <input type="text" name="programming_language" class="form-control"
-                            value="{{ old('programming_language', $project->programming_language) }}" required>
-                    </div>
+                    <label for="programming_language_id">Linguaggio:</label>
+                    <select class="form-control" name="programming_language_id" id="programming_language_id" required>
+                        @foreach ($programmingLanguages as $language)
+                            <option value="{{ $language->id }}">{{ $language->name }}</option>
+                        @endforeach
+                    </select>
 
                     <div class="mb-3">
                         <label for="img" class="form-label">Immagine (URL):</label>

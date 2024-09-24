@@ -19,10 +19,11 @@
                         <textarea name="description" class="form-control" rows="5" placeholder="Descrivi il progetto" required></textarea>
                     </div>
                     <div class="mb-3">
-                        <label for="programming_language" class="form-label">Linguaggi Utilizzati: <span
+                        <label for="programming_language_id" class="form-label">Linguaggi Utilizzati: <span
                                 class="text-danger">*</span></label>
-                        <input type="text" name="programming_language" class="form-control"
-                            placeholder="Es. HTML, CSS, JavaScript" required>
+                        @foreach ($programmingLanguages as $language)
+                            <option value="{{ $language->id }}">{{ $language->name }}</option>
+                        @endforeach
                     </div>
                     <div class="mb-3">
                         <label for="img" class="form-label">Immagine:</label>
